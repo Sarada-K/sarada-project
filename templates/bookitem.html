@@ -5,7 +5,13 @@
         <th>Author</th>
         <th>Price</th>
         <th>Rating</th>
-        <th colspan = 2>Action</th>
+        {% if type == "admin": %}
+          <th colspan = 2 >Action</th>
+        {%endif%}
+        {% if type == "others": %}
+          <th>Action</th>
+        {%endif%}
+        
       </tr>
       {% for book in books %}          
       <tr >
@@ -13,8 +19,13 @@
         <td>{{book['author']}}</td>
         <td>{{book['price']}}</td>
         <td>{{book['rating']}}</td>
+        {% if type == "admin": %}
+          <td><a href>Update</a></td>
+          <td><a href>Delete</a></td>
+        {%endif%}
+        {% if type == "others": %}
         <td><a href>Buy</a></td>
-        <td><a href>Rent</a></td>
+        {%endif%}
       </tr> 
       {% endfor %}
     </table>

@@ -1,0 +1,27 @@
+ <div id="container">
+      <form id="form1" method="POST" action="/login">
+        <br>
+        <table>
+          <tr>
+            <td >
+              User Name
+            </td>
+            <td><input type="text"name="user" required/></td>
+          </tr>          
+          <tr>
+            <td>
+              Password
+            </td>
+            <td><input type="password" name="pwd" required/></td>
+          </tr>
+        </table>
+        <div id="login">
+          {%if type == "signup":%}
+            <input type="submit" name="log" value="sign-up"/>
+          <input type="reset" name="cancel" value="cancel"/>
+          {%else:%}
+            <input type="submit" name="log" value="Login"/> 
+          {%endif%}
+        </div>
+      </form>
+    </div>

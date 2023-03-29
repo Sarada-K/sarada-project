@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request
 
 app = Flask(__name__)
 BOOKS = [{
@@ -35,8 +35,32 @@ BOOKS = [{
 
 
 @app.route("/")
-def index():
-  return render_template("dashboard.html", books=BOOKS)
+def login():
+  return render_template("home.html", type="initial")
+
+
+@app.route("/signup")
+def signup():
+  return render_template("home.html", type="signup")
+
+
+@app.route("/login", methods=['POST'])
+def hello_user():
+  name = request.form['user']
+  if name.strip() == 'admin':
+    return redirect("/user/admin/")
+  else:
+    return redirect("/user/")
+
+
+@app.route("/user/admin/")
+def admin_index():
+  return render_template("admin_dashboard.html", books=BOOKS, type='admin')
+
+
+@app.route("/user/")
+def guest_index():
+  return render_template("guest_dashboard.html", books=BOOKS, type='others')
 
 
 @app.route("/contactus")

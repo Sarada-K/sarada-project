@@ -28,6 +28,11 @@
         margin: 0 auto;
         width: 60%
       }
+      .input{
+        text-align:center;
+        padding: 20px;
+      }
+      
      
       a:link {
         font-family: Roboto;
@@ -40,16 +45,19 @@
       }
       #footer {
         text-align: center;
+        padding: 100px;
       }
     </style>
   </head>
-  <body>
+  <body>    
+     <h2>List of Books</h2>  
     <div id="container">
-      <h2>Welcome to our online book store!</h2>
-      <img id = "banner" src="https://sarada-project.saradakv.repl.co/static/book-store.jpg" width="520">    
      {%include 'bookitem.html'%}
+      <div class='input'>
+        <input type="submit" name="send" value="Add a Book Item"/>
+      </div>
       <div id = "footer">
-        <a href="contactus" >Contact Us</a>
+        <a href="mailto:someone@yoursite.com?subject=Mail from Our Site" >Contact Us</a>
         <a href="aboutus">About Us</a>
       </div>
     </div>
