@@ -1,2 +1,2 @@
 # sarada-project
-A Python project by Sarada
+This is a python project for running an online book store.
